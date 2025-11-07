@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M365 Copilot Enterprise - 차원이 다른 AI 업무 혁신</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #1f1f1f;
+            background: #ffffff;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0078d4 0%, #00bcf2 50%, #0078d4 100%);
+            color: #ffffff;
+            padding: 100px 20px 80px;
+            text-align: center;
+            border-bottom: none;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero .subtitle {
+            font-size: 0.95em;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 6px;
+            margin-top: 10px;
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .key-differences-section {
+            background: white;
+            padding: 80px 20px;
+            margin: 0;
+        }
+
+        .key-differences-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #0078d4;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #5a5a5a;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+
+        .difference-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .difference-card {
+            background: white;
+            padding: 35px 45px;
+            border-radius: 12px;
+            border: 1px solid #e1e1e1;
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            transition: all 0.3s;
+        }
+
+        .difference-card:hover {
+            border-color: #0078d4;
+            box-shadow: 0 4px 20px rgba(0, 120, 212, 0.1);
+        }
+
+        .difference-icon {
+            font-size: 3.5em;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .difference-content {
+            flex: 1;
+        }
+
+        .difference-card h3 {
+            font-size: 1.4em;
+            color: #1f1f1f;
+            margin-bottom: 12px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .difference-card .highlight {
+            font-size: 1.05em;
+            color: #0078d4;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .difference-card p {
+            color: #5a5a5a;
+            line-height: 1.8;
+            font-size: 0.98em;
+            margin: 0;
+        }
+
+        .difference-card .accent {
+            color: #0078d4;
+            font-weight: 600;
+        }
+
+        .comparison-section {
+            background: #fafafa;
+            padding: 80px 20px;
+            margin: 0;
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #1f1f1f;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .comparison-section .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: #5a5a5a;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .plan-card {
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid #e1e1e1;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: white;
+        }
+
+        .plan-card:hover {
+            border-color: #0078d4;
+            box-shadow: 0 4px 16px rgba(0, 120, 212, 0.1);
+        }
+
+        .plan-card.free {
+            background: white;
+        }
+
+        .plan-card.enterprise {
+            background: white;
+            border: 2px solid #0078d4;
+            position: relative;
+        }
+
+        .plan-card.enterprise .badge {
+            display: inline-block;
+            background: #0078d4;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .plan-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #1f1f1f;
+        }
+
+        .plan-card .description {
+            font-size: 0.95em;
+            color: #5a5a5a;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0078d4;
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        .features-list li.limited {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        .features-list li.limited::before {
+            content: "−";
+            color: #999;
+        }
+
+        .features-section {
+            background: white;
+            padding: 80px 20px;
+            margin: 0;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #1f1f1f;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .features-section .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: #5a5a5a;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fafafa;
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #e1e1e1;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #0078d4;
+            box-shadow: 0 4px 16px rgba(0, 120, 212, 0.08);
+        }
+
+        .feature-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .feature-card h3 {
+            color: #1f1f1f;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #5a5a5a;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        .cta-section {
+            background: #f3f9ff;
+            color: #1f1f1f;
+            padding: 80px 20px;
+            text-align: center;
+            margin: 0;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        .cta-section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #1f1f1f;
+        }
+
+        .cta-section p {
+            font-size: 1.05em;
+            margin-bottom: 35px;
+            color: #5a5a5a;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0078d4;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1em;
+            transition: background 0.3s;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            background: #005a9e;
+        }
+
+        .cta-button.secondary {
+            background: white;
+            color: #0078d4;
+            border: 1px solid #0078d4;
+        }
+
+        .cta-button.secondary:hover {
+            background: #f3f9ff;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .table-section {
+            background: white;
+            padding: 80px 20px;
+            margin: 0;
+            overflow-x: auto;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        .table-section h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #1f1f1f;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .table-section .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: #5a5a5a;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .comparison-table th {
+            background: #fafafa;
+            color: #1f1f1f;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e1e1e1;
+            font-size: 0.9em;
+        }
+
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9em;
+        }
+
+        .comparison-table tr:hover {
+            background: #fafafa;
+        }
+
+        .comparison-table .category-header {
+            background: #f8f8f8;
+            font-weight: 600;
+            color: #1f1f1f;
+            font-size: 0.95em;
+        }
+
+        .check-mark {
+            color: #5a5a5a;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .premium-mark {
+            color: #0078d4;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        footer {
+            background: #fafafa;
+            color: #5a5a5a;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 0;
+            border-top: 1px solid #e1e1e1;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .difference-card {
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+            }
+
+            .difference-icon {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div style="font-size: 3em; margin-bottom: 20px;">✨</div>
+        <h1>M365 Copilot으로 더 스마트한 업무 환경 만들기</h1>
+        <p>이미 익숙한 도구에 AI가 더해지면, 일하는 방식이 달라집니다</p>
+        <div class="subtitle">
+            🎯 여러분의 업무 환경에 최적화된 AI 어시스턴트
+        </div>
+    </div>
+
+    <!-- Key Differences Section -->
+    <div class="container">
+        <div class="key-differences-section">
+            <h2>M365 Copilot, 지금과 무엇이 다른가요?!</h2>
+            <p class="section-subtitle">무료와 유료 서비스의 핵심 차이</p>
+            
+            <div class="difference-cards">
+                <div class="difference-card">
+                    <div class="difference-icon">📝</div>
+                    <div class="difference-content">
+                        <h3>인터넷의 정보만 가지고 답변하지 않아요! 이제는 회사 내부 자료도 답변을 척척!</h3>
+                        <p><strong>M365 Copilot</strong>은 <span class="accent">쉐어 포인트, 원드라이브, 메일, 채팅, 일정</span> 등 모든 회사 데이터를 참조할 수 있습니다. <br> 이제 회사 업무 내용도 Copilot에게 물어보고 바로 답변을 받아보세요</p>
+                    </div>
+                </div>
+
+                <div class="difference-card">
+                    <div class="difference-icon">🔍</div>
+                    <div class="difference-content">
+                        <h3>ChatGPT 심층 리서치 기능도 포함되어 있다고? 게다가 회사 자료도 참조해??</h3>
+                        <p>나는 조금 더 전문적인 보고서, 분석 자료가 필요한데, 내 돈 주고 사서 쓰기엔 너무 비싸.. <br> 리서치 에이전트를 통해 <span class="accent">OpenAI社의 심층 추론 모델과 회사 내부 데이터를 활용</span>해 전문 보고서를 작성할 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <div class="difference-card">
+                    <div class="difference-icon">🤖</div>
+                    <div class="difference-content">
+                        <h3>손쉽게 회사 내부 자료를 기반으로 나만의 AI Agent를 만들 수 있어요</h3>
+                        <p><span class="accent">쉐어 포인트의 자료, 메일, 채팅 정보</span>들을 기반으로 나만의, 우리 팀만의 에이전트를 만들 수 있어요. <span class="accent"> <br> 개발자가 아니라도 웹화면에서 손쉽게 만들어서</span> 팀원들과 공유해서 활용할 수 있습니다</p>
+                    </div>
+                </div>
+
+                <div class="difference-card">
+                    <div class="difference-icon">📈</div>
+                    <div class="difference-content">
+                        <h3>엑셀 데이터를 분석하고 파이썬을 이용해 그래프나 예측모델도 만들 수 있어요</h3>
+                        <p>Excel Copilot, 분석가 에이전트 등을 활용해 데이터를 분석할 수 있어요. <br> 너무나 어려웠던 파이썬 코드 역시 Copilot이 대신 작성하여 <span class="accent">예측 모델, 시각화 모델</span>도 척척 만들 수 있어요</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Comparison Cards -->
+        <div class="comparison-section">
+            <h2>어떤 차이가 있나요?</h2>
+            <p class="intro-text">
+                무료 Chat도 훌륭하지만, 업무 환경에서는 조직의 데이터와 연결되고 보안이 <br> 보장되는 Enterprise 버전이 진정한 생산성 향상을 가져옵니다.
+            </p>
+            <div class="comparison-grid">
+                <!-- Free Chat -->
+                <div class="plan-card free">
+                    <h3>Copilot Chat - 무료 </h3>
+                    <div class="description">개인용 AI 채팅 도구</div>
+                    <ul class="features-list">
+                        <li>웹 정보 기반 답변</li>
+                        <li>파일 업로드 (표준)</li>
+                        <li>이미지 생성 (표준)</li>
+                        <li class="limited">회사 데이터 접근</li>
+                        <li class="limited">M365 앱 통합</li>
+                        <li class="limited">맞춤형 에이전트</li>
+                    </ul>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="plan-card enterprise">
+                    <div class="badge">조직용</div>
+                    <h3>Microsoft 365 Copilot</h3>
+                    <div class="description">업무 환경에 통합된 AI 솔루션</div>
+                    <ul class="features-list">
+                        <li><strong style="color: #0078d4;">SharePoint, OneDrive</strong> 등 회사 데이터 활용</li>
+                        <li><strong style="color: #0078d4;">Mail, Teams, Outlook</strong> 일정 등 회사 데이터 활용</li>
+                        <li>웹 정보 기반 답변 (<strong style="color: #0078d4;">GPT-5 기반 우선 처리</strong>)</li>
+                        <li>파일 업로드</li>
+                        <li>이미지 생성 (<strong style="color: #0078d4;">우선 처리</strong>)</li>
+                        <li><strong style="color: #0078d4;">Teams, Word, Excel, Outlook</strong> 완벽 연동</li>
+                        <li>업무별 <strong style="color: #0078d4;">맞춤형 에이전트 생성</strong></li>
+                        <li><strong style="color: #0078d4;">엔터프라이즈급 보안</strong> 및 규정 준수</li>
+                        <li><strong style="color: #0078d4;">모든 기기 동기화</strong> 및 채팅 기록 보존</li>
+                        <li><strong style="color: #0078d4;">실시간 협업</strong> (Pages)</li>
+                        <li>사용 현황 및 <strong style="color: #0078d4;">ROI 분석</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="features-section">
+            <h2>일하는 방식이 어떻게 바뀌나요?</h2>
+            <p class="intro-text">
+                Enterprise 버전은 단순한 도구가 아니라 여러분의 업무 환경에 자연스럽게 통합되어 <br>
+                <strong style="color: #0078d4;">매일의 작업을 더 빠르고 효율적으로 만들어줍니다.</strong>
+            </p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">🔍</div>
+                    <h3>필요한 정보를 즉시 찾아보세요</h3>
+                    <p>여러 폴더를 뒤지지 않아도 됩니다. <br> SharePoint, Teams, OneDrive에 있는 <br> 모든 문서를 자연어로 검색하고 바로 활용할 수 있습니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">✍️</div>
+                    <h3>Word, Excel에서 바로 도움받기</h3>
+                    <p>별도 프로그램을 열 필요 없이 작업 중인 문서에서 바로 AI의 도움을 받으세요. 보고서 작성, 데이터 분석이 훨씬 빨라집니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🎙️</div>
+                    <h3>회의록 자동 요약</h3>
+                    <p>Teams 회의가 끝나면 자동으로 요약과 액션 아이템을 정리해줍니다. 놓친 회의 내용도 언제든 확인할 수 있습니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🧠</div>
+                    <h3>이전 대화 기억하기</h3>
+                    <p>반복해서 설명할 필요가 없습니다. AI가 이전 대화를 기억하고 맥락에 맞는 답변을 제공합니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>반복 업무 자동화</h3>
+                    <p>매일 하는 정형화된 작업들을 AI 에이전트로 만들어 자동화하세요. 더 중요한 일에 집중할 수 있습니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>안전한 데이터 관리</h3>
+                    <p>회사의 보안 정책과 규정을 준수하면서 AI를 활용할 수 있습니다. 권한이 있는 데이터만 접근합니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">✉️</div>
+                    <h3>이메일 빠르게 정리하기</h3>
+                    <p>Outlook에서 중요한 메일을 우선 표시하고, 긴 스레드를 요약하며, 답변 초안을 작성해줍니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">📈</div>
+                    <h3>데이터 분석 쉽게 하기</h3>
+                    <p>Excel에서 복잡한 수식 없이 자연어로 질문하면 분석 결과와 시각화를 바로 만들어줍니다.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>부서별 맞춤 솔루션</h3>
+                    <p>영업, 고객서비스, 재무 등 각 팀의 업무 특성에 맞춘 전문 AI를 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Comparison Table -->
+        <div class="table-section">
+            <h2>기능별 상세 비교</h2>
+            <p class="intro-text">
+                무료 버전과 Microsoft 365 Copilot의 차이를 자세히 확인해보세요. <br>
+                업무 환경에서 필요한 기능들이 Microsoft 365 Copilot에 포함되어 있습니다.
+            </p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>기능</th>
+                        <th style="text-align: center;">Copilot Chat</th>
+                        <th style="text-align: center;">Microsoft 365 Copilot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="category-header">
+                        <td colspan="4">⚡ 개인 및 팀 생산성</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>GPT-5 기반 웹 AI 채팅</td>
+                        <td class="check-mark">표준 ✓</td>
+                        <td class="premium-mark">우선 ✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>회사 데이터 기반 AI 채팅</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>AI 노트북</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>AI 기반 검색</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>이미지 생성</td>
+                        <td class="check-mark">표준 ✓</td>
+                        <td class="premium-mark">우선 ✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>고급 추론 에이전트 (리서치/분석)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>전문 에이전트 (통역사, 프로젝트 관리자 등)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>역할 기반 AI (영업, 서비스, 재무)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+
+                    <tr class="category-header">
+                        <td colspan="4">⚙️ 비즈니스 프로세스</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>맞춤형 에이전트 생성</td>
+                        <td style="text-align: center; color: #999;">제한적</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Copilot 튜닝</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+
+                    <tr class="category-header">
+                        <td colspan="4">💬 채팅 경험</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>3rd Party 데이터 통합 (Jira, Confluence 등)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>M365 앱 내 작업 파일 + 사내 데이터 활용</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>영구 채팅 (모든 기기 동기화)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>메모리 & 개인화</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>실시간 공동편집 (Pages)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+
+                    <tr class="category-header">
+                        <td colspan="4">🔍 검색 경험</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>자연어 + Vector Indexing 검색</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>M365 + 온프레미스 + 클라우드 통합 검색</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+
+                    <tr class="category-header">
+                        <td colspan="4">🎨 콘텐츠 생성</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>이미지, 인포그래픽 생성</td>
+                        <td class="check-mark">표준 ✓</td>
+                        <td class="premium-mark">우선 ✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>비디오 & 양식 생성</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>브랜드 키트 (로고, 색상, 글꼴)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+
+                    <tr class="category-header">
+                        <td colspan="4">🔗 M365 앱 통합</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Teams 미팅 요약 & 인사이트</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Word, Excel, PowerPoint 에이전트 모드</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Outlook Copilot (우선순위, 초안 작성)</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Excel Python & 자연어 수식</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+
+                    <tr class="category-header">
+                        <td colspan="4">🛡️ 보안 & 관리</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>엔터프라이즈 데이터 보호</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>IT 관리 제어 & 라이선스 관리</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>SharePoint 고급 관리</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>기본 Copilot 분석</td>
+                        <td class="check-mark">✓</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>고급 분석 & ROI 측정</td>
+                        <td style="text-align: center; color: #ccc;">−</td>
+                        <td class="premium-mark">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>더 효율적인 업무 환경을 경험해보세요</h2>
+            <p>Microsoft 365 Copilot로 팀의 생산성을 높이고 더 의미 있는 일에 집중하세요</p>
+            <a href="#" class="cta-button">시작하기</a>
+            <a href="#" class="cta-button secondary">자세히 알아보기</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>본 페이지는 Microsoft 365 Copilot 기능을 소개하기 위한 교육 자료입니다.</p>
+        <p>&copy; 2025 Microsoft 365. 더 자세한 정보는 공식 문서를 참고하세요.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .plan-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
